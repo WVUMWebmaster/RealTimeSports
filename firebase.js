@@ -14,12 +14,12 @@
       var umCurrentScore = 0;
       var opponentCurrentScore=0;
       dbScore.on('value', function(snap) {
-        umCurrentScore=snap.val().homeScore;
+        umCurrentScore=snap.val().umScore;
         opponentCurrentScore = snap.val().opponentScore;
         console.log("From Firebase:" + opponentCurrentScore)
-      });
+      }); 
       dbScore.update({
-        homeScore:0,
+        umScore:0,
         opponentScore:0
     });
       var homeScore = 0;
@@ -40,7 +40,7 @@
             umCurrentScore = umCurrentScore + addedValue;
             console.log(umCurrentScore);
             dbScore.update({
-                  homeScore:umCurrentScore
+                  umScore:umCurrentScore
               });
             score.html(umCurrentScore);
           }
